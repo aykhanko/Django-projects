@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    
+    {% load static %}
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 120vh;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .nav-container a {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0 20px;
+            transition: color 0.3s;
+        }
+
+        .nav-container a:hover {
+            color: #f39c12;
+        }
+
+        .content {
+            margin-top: 80px;  
+            padding: 20px;
+        }
+
+        
+        body {
+            background-image: url('{% static "images/background_photo.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <span><a href="/home">Homepage</a></span>
+        <span><a href="/polls">Polls</a></span>
+    </div>
+    
+    <div class="content">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+
+{% block extra_css %} {%endblock%}
+</body>
+</html>
