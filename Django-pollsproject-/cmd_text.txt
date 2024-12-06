@@ -1,4 +1,0 @@
-Create new virtual env
-
-pip install -r requirements.txt
-(change directory C:/Users/user/destkop/dist)
