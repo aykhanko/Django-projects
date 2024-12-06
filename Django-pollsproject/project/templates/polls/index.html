@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Polls{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <h1 class="welcome-text">Polls</h1>
+    
+    {% if latest_question_list %}
+        <div class="poll-list">
+            <ul>
+            {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .welcome-text {
+        font-size: 48px; 
+        font-weight: bold; 
+        color: #f39c12; 
+        background-color: #333; 
+        padding: 10px 70px; 
+        border-radius: 50px; 
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); 
+        text-align: center;
+    }
+
+    .poll-list {
+        text-align: center;
+    }
+
+    .poll-list ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .poll-list li {
+        margin: 15px 0;
+    }
+
+    .poll-list a {
+        font-size: 30px; 
+        font-weight: bold; 
+        color: #f39c12; 
+        background-color: #333; 
+        padding: 2px 70px; 
+        border-radius: 50px; 
+        box-shadow: 0 10px 10px rgb(243, 241, 241); 
+        text-align: center;;
+    }
+
+    .poll-list a:hover {    
+        color: #fffffff2;
+    }
+</style>
+{% endblock %}
