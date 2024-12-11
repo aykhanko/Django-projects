@@ -3,9 +3,9 @@ from .models import Question, Answer
 
 class AnswerInline(admin.TabularInline):
     model = Answer
-    extra = 3  # Yeni soru eklediğinizde varsayılan 2 cevap ekler
+    extra = 3   
 
 class QuestionAdmin(admin.ModelAdmin):
-    inlines = [AnswerInline]  # Cevapları soru formunda göster
+    inlines = [AnswerInline]  
 
-admin.site.register(Question, QuestionAdmin)  # Question modelini admin paneline kaydeder
+admin.site.register(Question, QuestionAdmin)  
